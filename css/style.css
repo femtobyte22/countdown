@@ -187,8 +187,7 @@ section.headingSec a:active {
     div.tittle-container p {
         font-size: 15px;
     }
-}
-@media screen and (max-width:350px) {
+
     section.headingSec{
         transform: scale(0.7);
     }
