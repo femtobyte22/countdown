@@ -1,0 +1,557 @@
+@import url('https://fonts.googleapis.com/css2?family=Neonderthaw&family=Rubik+Beastly&family=Sedgwick+Ave&family=Merriweather:ital,wght@1,900&family=PT+Serif&family=Libre+Baskerville:ital@0;1&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --heightInVH-default: 100vh;
+    --font_Neondar:'Neonderthaw', cursive;
+    --font_Rubik:'Rubik Beastly', cursive;
+    --font_Sedgwick:'Sedgwick Ave', cursive;
+    --font_merri:'Merriweather', serif;
+    --font_pt:'PT Serif', serif;
+    --font_libre:'Libre Baskerville', serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: url(../images/background.png);
+    background-attachment: fixed;
+
+    background-repeat: no-repeat;
+}
+
+.holder-20 {
+    height: 20vh;
+}
+
+.holder {
+    height: 100vh;
+}
+
+
+
+section.headingSec {
+    width: 100%;
+    margin-bottom: 10%;
+    background: transparent;
+    display: grid;
+    grid-template-columns: auto;
+    align-items: flex-end;
+}
+
+p.browser_warn {
+    width: 100%;
+    height: 150px;
+    background: #7f7f7fea;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: mediumblue;
+    font-size: 35px;
+    font-family: Helvetica, sans-serif;
+    font-weight: 600;
+    text-align: center;
+    z-index: 1;
+}
+
+.tittle-container {
+    width: 60%;
+    height: 100%;
+    margin: 0 auto;
+    background: transparent;
+    text-align: center;
+}
+
+div.tittle-container h1 {
+    font-size: 33pt;
+    margin-top: 10%;
+    color: blue;
+    font-family: var(--font_Sedgwick);
+    display: block;
+    text-shadow: 2pt 2pt rgba(0, 0, 0, 0.739);
+    font-size: 50px;
+}
+div.tittle-container h1 span.lg-or{
+    color: orange;
+}
+div.tittle-container h1 span.lg-f0{
+    color: red;
+}
+div.tittle-container p {
+    letter-spacing: 2px;
+    color: black;
+    font-weight: 500;
+    font-family: var(--font_libre);
+    text-align: center;
+    font-size: 20px;
+}
+
+div.divider-line {
+    width: 60%;
+    height: 5px;
+    border-radius: 50px;
+    background: #f00;
+    margin: 0 auto;
+    transform-style: preserve-3d;
+    transform: rotate(0deg);
+    animation: animate 5s linear infinite;
+
+    animation-timing-function: cubic-bezier(1, 1, 0, 1);
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+
+    }
+
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
+section.headingSec .button-holder {
+    width: 80%;
+    margin: 0 auto;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+section.headingSec button,
+section.headingSec a {
+    width: 40%;
+    height: 76px;
+    margin: 10% auto;
+    padding: 20px 23px;
+    background: linear-gradient(180deg, #1005ad, #30058b);
+
+    box-shadow: inset -5px 0 5px #1c1e7a,
+        inset 5px 0 5px rgba(2, 2, 32, 0.692),
+        10px 10px 15px #2f2f2f,
+        20px 20px 25px #1f1f1f;
+    border-radius: 0px;
+    border: none;
+    font-size: 20pt;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+    transition: all linear 200ms;
+}
+
+section.headingSec button.playGame {
+    background: linear-gradient(180deg, #ad0505, #f61010);
+    border: none;
+    border-radius: 0px;
+    box-shadow: inset -5px 0 5px #7a1f1c,
+        inset 5px 0 5px rgba(32, 2, 2, 0.692),
+        10px 10px 15px #2f2f2f,
+        20px 20px 25px #1f1f1f;
+}
+section.headingSec button:hover,
+section.headingSec a:hover,
+section.headingSec button:active,
+section.headingSec a:active {
+    transform: scale(0.9);
+}
+
+/*Responsive design for section1.650px*/
+@media screen and (max-width:650px) {
+    p.browser_warn {
+        font-size: 25px;
+    }
+
+    section.headingSec .button-holder {
+        display: grid;
+    }
+
+    section.headingSec button,
+    section.headingSec a {
+        width: 100%;
+    }
+    div.tittle-container p {
+        font-size: 15px;
+    }
+}
+@media screen and (max-width:350px) {
+    section.headingSec{
+        transform: scale(0.7);
+    }
+    section.headingSec p.browser_warn{
+        transform: scale(1);
+    }
+}
+/* css part 2 -> sidebar */
+section.secondSection {
+    width: 100%;
+    position: relative;
+}
+
+div.sidenavContainer {
+
+    height: 100%;
+    width: 0%;
+    background: rgb(236, 179, 72);
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    overflow-x: hidden;
+    transition: all ease-out 0.6s;
+}
+
+div.sidenavHeader {
+    height: 20vh;
+    background: transparent;
+    display: grid;
+    align-items: end;
+    padding-top: 20px;
+
+}
+
+p.sidenavHead {
+    padding: 10px;
+    color: white !important;
+    background: rgba(153, 114, 40, 0.685);
+}
+
+.btn-inSidenav {
+
+    font-size: 18pt;
+    color: white;
+    background: blue;
+    font-weight: 800;
+    letter-spacing: normal;
+    text-transform: uppercase;
+    font-family: consolas;
+    border-radius: 20px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: all ease-in 0.4s;
+    border: none;
+}
+
+.btn-inSidenav:hover {
+    border-radius: 0px;
+    background: grey;
+}
+
+.tittle-container.inSidenav p {
+    color: green;
+    font-size: 18pt;
+    margin-top: 4px;
+    font-weight: 900;
+}
+
+.divider-line.line-inSidenav {
+    width: 80%;
+    margin-top: 10%;
+    background: blue;
+}
+
+.sidenavBody {
+
+    height: 80vh;
+    background: transparent;
+    padding: 70px 20px;
+    text-align: center;
+}
+
+
+.numberpadContainer {
+    width: 90%;
+    height: 100%;
+    background: transparent;
+    margin: 0 auto;
+    border-radius: 0px;
+    display: flex;
+    align-items: center;
+}
+
+.numberpadContainer .numberPad {
+    width: 100%;
+    height: 90%;
+    background: blue;
+    border-radius: 30px;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 2%;
+    padding: 20px;
+    box-shadow: 0 0 10px 5px black, 0 0 30px 9px black;
+}
+
+.number_pallete {
+    background: midnightblue;
+    height: 58px;
+    border-radius: 20px;
+    color: white;
+    font-size: 40px;
+    font-weight: 900;
+    line-height: 58px;
+    cursor: pointer;
+    transition: all ease-out 0.3s;
+}
+
+.number_pallete:hover {
+
+    background: springgreen;
+    color: black;
+}
+
+.selected {
+    background: springgreen !important;
+    color: black;
+}
+
+section.secondSection div.mainPart {
+    height: 100%;
+    width: 100%;
+    transition: width ease-out 0.6s;
+    position: relative;
+}
+
+.menuBar {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 0%;
+    right: 0;
+    cursor: pointer;
+    transition: top ease-out 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Timer Making Css */
+.container {
+    width: 100%;
+    height: 70%;
+    background: transparent;
+
+}
+
+.timer-wrapper {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.timer-background {
+    width: 600px;
+    height: 330px;
+    background: midnightblue;
+    border-radius: 30px;
+    transition: all 0.3s linear;
+    margin: 10px;
+    box-shadow: 0 0 12px 4px black, 0 0 32px 5px black;
+
+}
+
+@media screen and (max-width:700px) {
+    .timer-background {
+        transform: scale(0.7);
+    }
+}
+
+@media screen and (max-width:650px) {
+    .timer-background {
+        transform: scale(0.55);
+    }
+}
+
+@media screen and (max-width:550px) {
+    .timer-background {
+        transform: scale(0.9);
+        height: 250px;
+        width: 400px;
+    }
+}
+
+@media screen and (max-width:400px) {
+    .timer-background {
+        transform: scale(1);
+        height: 200px;
+
+    }
+}
+
+@media screen and (max-width:250px) {
+    .timer-background {
+        transform: scale(0.7);
+        height: 200px;
+
+    }
+}
+
+div.inputHolder {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    padding: 0px 15px;
+
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    gap: 15%;
+
+}
+
+div.min-container,
+div.sec-container {
+    width: 100%;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+div.minHolder,
+div.secHolder {
+    width: 100%;
+    height: calc(100% - 30px);
+    background: transparent;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+div.minHolder P,
+div.secHolder P {
+    background: thistle;
+    border-radius: 20px;
+    height: 120px;
+    width: 40%;
+    font-size: 80px;
+    text-align: center;
+    line-height: 120px;
+    color: teal;
+    font-weight: 900;
+    font-family: sans-serif;
+    cursor: pointer;
+    transition: transform 0.2s linear;
+    border: 3pt solid thistle;
+}
+
+div.minHolder P:hover,
+div.secHolder P:hover {
+    transform: scale(1.2);
+    border: 3pt solid teal;
+    background: wheat;
+}
+
+div.inputTitleHolder {
+    width: 100%;
+    height: 20px;
+    background-color: transparent;
+    position: absolute;
+    left: 0px;
+    bottom: 0;
+
+}
+
+div.timeTitle {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-around;
+}
+
+div.timeTitle span {
+    width: 40%;
+    height: 100%;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-family: monospace;
+    font-size: 20px;
+    /*according to inputTitleHolder Height*/
+}
+
+
+/* Timer start button */
+
+.timer-btn-holder {
+    width: 100%;
+    height: 10%;
+    /*total 100%. timer-container took 70%. space left 20%*/
+    background: transparent;
+}
+
+.timer-btn-wrapper {
+    width: 90%;
+    height: 100%;
+    background: transparent;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.timer-btn-wrapper .timer_btn {
+    width: 150px;
+    height: 60px;
+    padding: 10px;
+    border: none;
+    background: midnightblue;
+    color: white;
+    font-weight: 700;
+    font-size: 25px;
+    cursor: pointer;
+    border-radius: 0px;
+    transition: linear 0.3s all;
+    margin: 10px;
+}
+
+.timer-btn-wrapper .timer_btn:hover {
+
+    box-shadow: 0 0 12px 5px #0000ff;
+}
+
+.timer-btn-wrapper .timer_btn:focus {
+    box-shadow: none;
+    background: gray;
+}
+
+@media screen and (max-width:650px) {
+
+    div.minHolder P,
+    div.secHolder P {
+        font-weight: 700;
+        width: 45%;
+    }
+}
+@media screen and (max-width:350px) {
+
+    div.inputTitleHolder{
+        width: 190px;
+        transform: scale(0.7);
+        bottom: 10px;
+        left: -30px;
+    }
+}

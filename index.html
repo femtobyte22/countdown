@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fontawesome Link -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <!-- CSS LINK  -->
+    <link rel="stylesheet" href="css/menu_icon.css">
+    <link rel="stylesheet" href="css/muteBtn.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Count Down Timer</title>
+</head>
+
+<body>
+    <p class="browser_warn">Browse from Google Chrome or Brave for better experience!!!</p>
+
+    <section id="heading_sec" class="holder holder-20 headingSec">
+      
+        <div class="tittle-container">
+            <h1><span class="lg-or">Femto</span><span class="lg-f0">Web</span>  Apps</h1><br>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum alias perferendis accusamus quibusdam
+                similique ut, doloribus molestiae. Eaque dicta, nesciunt sapiente suscipit repellat sed perferendis
+                quisquam facilis rerum odio id accusamus fuga laborum pariatur eum, consequatur tenetur labore sequi
+                dolorum dolore. Natus asperiores maiores harum impedit culpa itaque voluptatem omnis.</p>
+        </div>
+        <div class="divider-line"></div>
+        <div class="button-holder">
+             <a href="#secondSection" class="slideBtn">Click HERE </a>
+             <button onclick="window.open('/games/titactoe/index.html','_blank')" class="slideBtn playGame">Play Game</button>
+        </div>
+       
+
+    </section>
+
+    <!--CountDown Section Start-->
+    <section style="display: none;" id="secondSection" class="holder secondSection">
+
+        <div class="sidenavContainer">
+            <div class="sidenavHeader">
+                <div class="tittle-container inSidenav">
+
+                    <p class="sidenavHead">Enter Time</p>
+                </div>
+                <div class="divider-line line-inSidenav"></div>
+            </div>
+
+            <div class="sidenavBody">
+                <div class="numberpadContainer">
+                    <div class="numberPad">
+                        <div class="number_pallete">0</div>
+                        <div class="number_pallete">1</div>
+                        <div class="number_pallete">2</div>
+                        <div class="number_pallete">3</div>
+                        <div class="number_pallete">4</div>
+                        <div class="number_pallete">5</div>
+                        <div class="number_pallete">6</div>
+                        <div class="number_pallete">7</div>
+                        <div class="number_pallete">8</div>
+                        <div class="number_pallete">9</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mainPart">
+
+            <div class="muteBtn-container">
+                <div onclick="sound.config(this)" class="muteBtn muted">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
+            <div class="menuBar">
+                <div onclick="sidenavTrigger.active()" class="sn-open toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
+
+            <!-- Count Down Timer -->
+            <div class="container timer-container">
+                <div class="wrapper timer-wrapper">
+                    <div class="timer-background">
+                        <div class="inputHolder">
+
+                            <div class="min-container">
+                                <div class="minHolder">
+                                    <p class="digit" id="min_zero">0</p>
+                                    <p class="digit" id="min_one">0</p>
+
+                                </div>
+                                <div class="inputTitleHolder">
+                                    <div class="timeTitle">
+                                        <span>Miniute</span>
+                                        <span>Miniute</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="sec-container">
+                                <div class="secHolder">
+                                    <p class="digit" id="sec_zero">0</p>
+                                    <p class="digit" id="sec_one">0</p>
+                                </div>
+                                <div class="inputTitleHolder">
+                                    <div class="timeTitle">
+                                        <span>Second</span>
+                                        <span>Second</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--InputHolder End-->
+
+
+                    </div>
+                    <!--Timer-background End-->
+                </div>
+            </div>
+            <div class="timer-btn-holder">
+                <div class="timer-btn-wrapper">
+                    <button type="button" class="timer_btn timer-startbtn">START</button>
+                    <button type="button" class="timer_btn timer-pausebtn">Pause</button>
+                    <button type="button" class="timer_btn timer-resetbtn">RESET</button>
+                </div>
+            </div>
+            <div class="audio-container">
+                <audio style="display: none;" id="signal_sfx" src="audio/signal_sfx.wav"></audio>
+            </div>
+
+        </div>
+    </section>
+
+    
+</body>
+<script src="../../node_modules/swup/dist/swup.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+    window.onload = () => {
+        resizeBackground();
+        takeNumber().take();
+        setTimeout(function(){
+            document.querySelector(".browser_warn").style.display = 'none'
+        },3000)
+    }
+  
+
+    function append_closeBtn() {
+        let closeButtonArray = document.querySelectorAll(".btn-inSidenav.sn-close");
+        let closeBtnNumber = closeButtonArray.length;
+        if (closeBtnNumber === 0) {
+            $(document).ready(function () {
+                $(".tittle-container.inSidenav").prepend(
+                    ' <button onclick="sidenavTrigger.close()" class="btn-inSidenav sn-close">Close</button>'
+                )
+            })
+        } else {
+            return 0;
+        }
+
+    }
+    $(document).ready(function () {
+        $(".timer-startbtn").click(() => {
+            countdown().start();
+
+        })
+
+        $(".slideBtn").mousedown(() => {
+            document.querySelector("#secondSection").style.display = 'block'
+        })
+
+    })
+
+    const sidenavTrigger = {
+        menuToggle: document.querySelector(".toggle"),
+        active: function () {
+            if (this.menuToggle.className.includes("sn-open") === true) {
+                this.open();
+            } else if (this.menuToggle.className.includes("sn-close") === true) {
+                this.close();
+            }
+
+        },
+        open: function () {
+            if (this.menuToggle.className.includes("active") === false) {
+                this.menuToggle.classList.add("active")
+            }
+            sidebar.open();
+            this.menuToggle.classList.replace('sn-open', 'sn-close');
+            document.querySelector(".menuBar").style.top = '50%'
+        },
+        close: function () {
+            if (this.menuToggle.className.includes("active") === true) {
+                this.menuToggle.classList.remove("active")
+            }
+            this.menuToggle.classList.replace('sn-close', 'sn-open');
+            document.querySelector(".menuBar").style.top = '0%'
+            sidebar.close();
+        },
+      
+    }
+
+    const sound = {
+        sfx: document.getElementById("signal_sfx"),
+  
+        config: function (button) {
+
+            button.classList.toggle("active")
+            this.mute(button);
+            
+        },
+        mute: function (button) {
+            if (button.className.includes("active") === true) {
+                this.sfx.muted = true;
+            }else if (button.className.includes("active") === false) {
+                this.sfx.muted = false;
+            }
+
+        }
+    }
+</script>
+
+</html>

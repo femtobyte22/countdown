@@ -1,0 +1,90 @@
+/* Making Mute Button Icon */
+div.muteBtn-container {
+    width: 80px;
+    height: 80px;
+    background: transparent;
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    margin-left: -40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.muteBtn {
+    width: 70px;
+    height: 70px;
+    background: #333;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    cursor: pointer;
+    padding-right: 5px;
+    overflow: hidden;
+}
+div.muteBtn.active::before{
+    content: "Music";
+    position: absolute;
+    font-weight: bolder;
+    font-family: 'arial';
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    left: 50%;
+    margin-left: -28px;
+}
+div.muteBtn span {
+    width: 0px;
+    height: 40px;
+    background: transparent;
+    border: 5px solid white;
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+    transition:1s;
+    margin: 0;
+}
+div.muteBtn.active span{
+    border-color: rgba(255, 0, 0, 0.685);
+}
+div.muteBtn span:nth-child(1){
+    transform: translateX(-5px);
+    height:10px;
+}
+div.muteBtn.active span:nth-child(1){
+    transform: translateY(-85px);
+    transition: 2s;
+}
+div.muteBtn span:nth-child(2){
+    height:20px;
+}
+div.muteBtn.active span:nth-child(2){
+    transform: translateX(5px) rotate(45deg);
+    height: 70px;
+}
+div.muteBtn span:nth-child(3){
+    transform: translateX(5px);
+    height:30px;
+}
+div.muteBtn.active span:nth-child(3){
+    transform: translateY(85px);
+    transition: 2s;
+}
+div.muteBtn span:nth-child(4){
+    transform: translateX(10px);
+    height:40px;
+}
+div.muteBtn.active span:nth-child(4){
+    transform: translateX(-4px) rotate(-45deg);
+    height:70px;
+}
+div.muteBtn span:nth-child(5){
+    transform: translateX(15px);
+    height:50px;
+}
+div.muteBtn.active span:nth-child(5){
+    transform: translateX(-95px) rotate(260deg);
+    height:50px;
+}
