@@ -5,7 +5,7 @@ div.muteBtn-container {
     background: transparent;
     position: absolute;
     bottom: 5%;
-    left: 50%;
+    left: 46%;
     margin-left: -40px;
     display: flex;
     justify-content: center;
@@ -15,16 +15,17 @@ div.muteBtn-container {
 div.muteBtn {
     width: 70px;
     height: 70px;
-    background: #333;
+    background: midnightblue;
     border-radius: 15px;
     display: flex;
     align-items: center;
-    justify-content:center;
+    justify-content: center;
     cursor: pointer;
     padding-right: 5px;
     overflow: hidden;
 }
-div.muteBtn.active::before{
+
+div.muteBtn.active::before {
     content: "Music";
     position: absolute;
     font-weight: bolder;
@@ -35,6 +36,7 @@ div.muteBtn.active::before{
     left: 50%;
     margin-left: -28px;
 }
+
 div.muteBtn span {
     width: 0px;
     height: 40px;
@@ -43,48 +45,129 @@ div.muteBtn span {
     border-right: none;
     border-top: none;
     border-bottom: none;
-    transition:1s;
+    transition: 1s;
     margin: 0;
 }
-div.muteBtn.active span{
+
+div.muteBtn.active span {
     border-color: rgba(255, 0, 0, 0.685);
 }
-div.muteBtn span:nth-child(1){
+
+div.muteBtn span:nth-child(1) {
     transform: translateX(-5px);
-    height:10px;
+    height: 10px;
 }
-div.muteBtn.active span:nth-child(1){
+
+div.muteBtn.active span:nth-child(1) {
     transform: translateY(-85px);
     transition: 2s;
 }
-div.muteBtn span:nth-child(2){
-    height:20px;
+
+div.muteBtn span:nth-child(2) {
+    height: 20px;
 }
-div.muteBtn.active span:nth-child(2){
+
+div.muteBtn.active span:nth-child(2) {
     transform: translateX(5px) rotate(45deg);
     height: 70px;
 }
-div.muteBtn span:nth-child(3){
+
+div.muteBtn span:nth-child(3) {
     transform: translateX(5px);
-    height:30px;
+    height: 30px;
 }
-div.muteBtn.active span:nth-child(3){
+
+div.muteBtn.active span:nth-child(3) {
     transform: translateY(85px);
     transition: 2s;
 }
-div.muteBtn span:nth-child(4){
+
+div.muteBtn span:nth-child(4) {
     transform: translateX(10px);
-    height:40px;
+    height: 40px;
 }
-div.muteBtn.active span:nth-child(4){
+
+div.muteBtn.active span:nth-child(4) {
     transform: translateX(-4px) rotate(-45deg);
-    height:70px;
+    height: 70px;
 }
-div.muteBtn span:nth-child(5){
+
+div.muteBtn span:nth-child(5) {
+    margin-right: 7px;
     transform: translateX(15px);
-    height:50px;
+    height: 50px;
 }
-div.muteBtn.active span:nth-child(5){
+
+div.muteBtn.active span:nth-child(5) {
     transform: translateX(-95px) rotate(260deg);
-    height:50px;
+    height: 50px;
+    margin-right: 0px;
+}
+
+/* Tutorial Button Making */
+div.tutoBtn-container {
+
+    width: 80px;
+    height: 80px;
+    background: transparent;
+    position: absolute;
+    bottom: 5%;
+    left: 54%;
+    margin-left: -40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+div.tutorial-holder {
+    width: 85%;
+    ;
+    height: 85%;
+    background: midnightblue;
+    border-radius: 15px;
+    position: relative;
+    cursor: pointer;
+}
+
+div.tutorial-holder span:nth-child(1) {
+    /* Upper Half of T */
+    width: 5px;
+    height: 54%;
+    background: white;
+    color: white;
+    position: absolute;
+    top: 24%;
+    left: 50%;
+    margin-left: -2.5px;
+    margin-top: -27%;
+    transform: rotate(90deg);
+    transition: all linear 450ms;
+}
+div.tutorial-holder.active span:nth-child(1){
+    transform: rotate(270deg);
+   
+}
+
+div.tutorial-holder span:nth-child(2) {
+
+    content: " ";
+    width: 5px;
+    height: 54%;
+    background: white;
+    color: white;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    margin-left: -2.5px;
+    margin-top: -27%;
+    transition: all linear 300ms;
+}
+div.tutorial-holder.active span:nth-child(2) {
+    transform: rotate(180deg);
+}
+@media screen and (max-width:800px) {
+    div.tutoBtn-container {
+        display: none;
+    }
 }
