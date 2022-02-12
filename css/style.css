@@ -298,12 +298,12 @@ p.sidenavHead {
 
 .number_pallete {
     background: midnightblue;
-    height: 58px;
+    height: 50px;
     border-radius: 20px;
     color: white;
-    font-size: 40px;
+    font-size: 35px;
     font-weight: 900;
-    line-height: 58px;
+    line-height: 50px;
     cursor: pointer;
     transition: all ease-out 0.3s;
 }
@@ -463,6 +463,7 @@ div.secHolder P {
     cursor: pointer;
     transition: transform 0.2s linear;
     border: 3pt solid thistle;
+    user-select: none;
 }
 
 div.minHolder P:hover,
@@ -547,6 +548,125 @@ div.timeTitle span {
     box-shadow: none;
     background: gray;
 }
+div.tour-container{
+    visibility: hidden;
+    width: 360px;
+    height: 200px;
+    background: white;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    margin-left: -180px;
+    margin-top: -100px;
+    z-index: 2 ;
+    border: 14px solid salmon;
+    border-radius: 20px;
+    padding: 20px;
+    display: grid;
+    gap: 0px;
+    opacity: 1;
+    box-shadow: 10px 10px 10px black;
+    transition: all linear 500ms;
+
+   
+}
+div.tour-container.active{
+    visibility: visible;
+
+    -webkit-animation-name: fromTop;
+    -webkit-animation-duration:1.5s ;
+    animation-name: fromTop;
+    animation-duration: 1.5s;
+}
+div.guide-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+div.guide-container h3{
+    color: mediumblue;
+    font-size: 21px;
+    margin-bottom: 10px;
+    font-weight: 900;
+    font-family: var(--font_merri);
+    font-style: normal;
+    text-align: center;
+    text-shadow: 1px 1px grey;
+    user-select: none;
+
+}
+div.guide-container h3.finish{color:orangered;font-size:38px;}
+
+div.guide-container p{
+    background-color: grey;
+    color: white;
+    font-size: 19px;
+    text-align: justify;
+    padding: 10px;
+    border-radius: 15px;
+    margin-left: 9px;
+    border: 3px inset #5f5f5f5f;
+    user-select: none;
+}
+div.guide-container p.finish {background:transparent;color:blue;text-align:center;border-color:red}
+div.tour-container div.btn-holder{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    margin-bottom: 0px;
+}
+
+div.tour-container div.btn-holder .tour-btn{
+    border-radius: 0px;
+    border: none;
+    width: 30%;
+    height: 30px;
+    background: mediumseagreen;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 5px 5px 10px #333;
+    font-family: monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all linear 200ms;
+}
+
+div.tour-container div.btn-holder .tour-btn:active{
+    filter: opacity(0.8);
+    box-shadow: none;
+}
+button.btn-skip{
+    background: pink !important;
+}
+button.btn-next{
+    background: rgba(0, 0, 255, 0.79) !important;
+    color: white !important;
+}
+button.btn-finish{
+    background: rgb(117, 5, 182) !important;
+    color: white;
+}
+button.btn-neverShow{
+    background: rgba(195, 25, 25, 0.781) !important;
+    width: 35% !important;
+    font-size: 14px !important;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
+}
+
+@-webkit-keyframes fromTop{
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+@keyframes fromTop{
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
 
 @media screen and (max-width:650px) {
 
@@ -563,5 +683,10 @@ div.timeTitle span {
         transform: scale(0.6);
         bottom: 10px;
         left: -30px;
+    }
+}
+@media screen and (max-width:750px) {
+    div.tour-container{
+        display: none;
     }
 }
