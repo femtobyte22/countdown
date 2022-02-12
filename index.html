@@ -5,46 +5,61 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Countdown Timer, Timer, Count Down Timer, Online Countdown Timer, Online Timer,Femtobyte,Femtobyte22,FemtoWebApps,Femto Apps,Femto Countdown Timer,Femto Timer, Tutorial For Timer">
+    <meta name="description" content="Set the time to count down, It will give you a signal after finishing countdown. There is a tutorial option to help you. ">
     <!-- Fontawesome Link -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <!-- CSS LINK  -->
     <link rel="stylesheet" href="css/menu_icon.css">
-    <link rel="stylesheet" href="css/muteBtn.css">
+    <link rel="stylesheet" href="css/mute&tuto.css">
     <link rel="stylesheet" href="css/style.css">
     <title>Count Down Timer</title>
 </head>
 
 <body>
-    <p class="browser_warn">Browse from Google Chrome or Brave for better experience!!!</p>
 
+    <p class="browser_warn">Browse from Google Chrome or Brave for better experience!!!</p>
     <section id="heading_sec" class="holder holder-20 headingSec">
-      
+
         <div class="tittle-container">
-            <h1><span class="lg-or">Femto</span><span class="lg-f0">Web</span>  Apps</h1><br>
+            <h1><span class="lg-or">Femto</span><span class="lg-f0">Web</span> Apps</h1><br>
             <p>Count Down Timer</p>
         </div>
         <div class="divider-line"></div>
         <div class="button-holder">
-             <a href="#secondSection" class="slideBtn">Click HERE </a>
-             <button onclick="window.location.href = '/games-tictactoe/index.html' " class="slideBtn playGame">Play Game</button>
+            <button class="slideBtn">Click HERE </button>
+            <button onclick="window.location.href = '/games-tictactoe/index.html' " class="slideBtn playGame">Play
+                Game</button>
         </div>
-       
 
     </section>
-
     <!--CountDown Section Start-->
+
     <section style="display: none;" id="secondSection" class="holder secondSection">
+        <!-- Tutorials -->
+        <div class="tour-container">
+            <div class="guide-container">
+                <h3>Let's Take A Tour</h3>
+                <p>Through this journey you will understand how to use this countdown timer</p>
+            </div>
+
+            <div class="btn-holder">
+                <button title="Close The Popup" class="tour-btn btn-skip">Skip</button>
+                <button title="Start Tutorial" class="tour-btn btn-start ">Start</button>
+                <button title="It will not work if you click on T button" class="tour-btn btn-skip btn-neverShow">Hide
+                    Forever</button>
+
+            </div>
+        </div>
 
         <div class="sidenavContainer">
             <div class="sidenavHeader">
                 <div class="tittle-container inSidenav">
-
                     <p class="sidenavHead">Enter Time</p>
                 </div>
                 <div class="divider-line line-inSidenav"></div>
             </div>
-
             <div class="sidenavBody">
                 <div class="numberpadContainer">
                     <div class="numberPad">
@@ -62,11 +77,10 @@
                 </div>
             </div>
         </div>
-
         <div class="mainPart">
 
             <div class="muteBtn-container">
-                <div onclick="sound.config(this)" class="muteBtn muted">
+                <div onclick="sound.config(this)" class="muteBtn muted" title="Mute/Unmute">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -74,7 +88,13 @@
                     <span></span>
                 </div>
             </div>
-
+            <!-- Tutorial Button -->
+            <div class="tutoBtn-container">
+                <div onclick="" class="tutorial-holder" title="Turn On Tutorial">
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
             <div class="menuBar">
                 <div onclick="sidenavTrigger.active()" class="sn-open toggle">
                     <span></span>
@@ -82,19 +102,15 @@
                     <span></span>
                 </div>
             </div>
-
-
             <!-- Count Down Timer -->
             <div class="container timer-container">
                 <div class="wrapper timer-wrapper">
                     <div class="timer-background">
                         <div class="inputHolder">
-
                             <div class="min-container">
                                 <div class="minHolder">
                                     <p class="digit" id="min_zero">0</p>
                                     <p class="digit" id="min_one">0</p>
-
                                 </div>
                                 <div class="inputTitleHolder">
                                     <div class="timeTitle">
@@ -103,7 +119,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="sec-container">
                                 <div class="secHolder">
                                     <p class="digit" id="sec_zero">0</p>
@@ -118,8 +133,6 @@
                             </div>
                         </div>
                         <!--InputHolder End-->
-
-
                     </div>
                     <!--Timer-background End-->
                 </div>
@@ -134,11 +147,9 @@
             <div class="audio-container">
                 <audio style="display: none;" id="signal_sfx" src="audio/signal_sfx.wav"></audio>
             </div>
-
         </div>
     </section>
 
-    
 </body>
 <script src="../../node_modules/swup/dist/swup.min.js"></script>
 <script src="js/bootstrap.js"></script>
@@ -146,14 +157,14 @@
 <script src="js/main.js"></script>
 <script>
     window.onload = () => {
+
         resizeBackground();
         takeNumber().take();
-        setTimeout(function(){
+        setTimeout(function () {
             document.querySelector(".browser_warn").style.display = 'none'
-        },3000)
+        }, 3000)
     }
-  
-
+    //Integrating Close-Btn in Sidenavbar @small-device
     function append_closeBtn() {
         let closeButtonArray = document.querySelectorAll(".btn-inSidenav.sn-close");
         let closeBtnNumber = closeButtonArray.length;
@@ -166,65 +177,180 @@
         } else {
             return 0;
         }
-
-    }
-    $(document).ready(function () {
-        $(".timer-startbtn").click(() => {
-            countdown().start();
-
-        })
-
-        $(".slideBtn").mousedown(() => {
-            document.querySelector("#secondSection").style.display = 'block'
-        })
-
-    })
-
-    const sidenavTrigger = {
-        menuToggle: document.querySelector(".toggle"),
-        active: function () {
-            if (this.menuToggle.className.includes("sn-open") === true) {
-                this.open();
-            } else if (this.menuToggle.className.includes("sn-close") === true) {
-                this.close();
-            }
-
-        },
-        open: function () {
-            if (this.menuToggle.className.includes("active") === false) {
-                this.menuToggle.classList.add("active")
-            }
-            sidebar.open();
-            this.menuToggle.classList.replace('sn-open', 'sn-close');
-            document.querySelector(".menuBar").style.top = '50%'
-        },
-        close: function () {
-            if (this.menuToggle.className.includes("active") === true) {
-                this.menuToggle.classList.remove("active")
-            }
-            this.menuToggle.classList.replace('sn-close', 'sn-open');
-            document.querySelector(".menuBar").style.top = '0%'
-            sidebar.close();
-        },
-      
     }
 
+
+
+
+
+
+    //Mute and Unmute
     const sound = {
         sfx: document.getElementById("signal_sfx"),
-  
-        config: function (button) {
 
+        config: function (button) {
             button.classList.toggle("active")
             this.mute(button);
-            
+
         },
         mute: function (button) {
             if (button.className.includes("active") === true) {
                 this.sfx.muted = true;
-            }else if (button.className.includes("active") === false) {
+            } else if (button.className.includes("active") === false) {
                 this.sfx.muted = false;
             }
+        }
+    }
 
+    // Tour Management and Button's work.
+    $(document).ready(function () {
+        $(".timer-startbtn").click(() => {
+            countdown().start();
+        })
+
+        $(".slideBtn").click(() => {
+            location.href = "#secondSection";
+            $('section#secondSection').css("display", "");
+
+        })
+
+        // Tour Buttons
+        $("div.tutorial-holder").click(function () {
+            if (this.className.includes('active') === false) {
+                tour.style.show().force();
+                console.log(this)
+            }else if(this.className.includes('active')){
+                tour.finish(false)
+            }
+            $(this).toggleClass('active')
+        })
+
+        $("div.tour-container button.btn-skip").click(function () {
+            tour.finish(false);
+            $("div.tutorial-holder").toggleClass('active')
+
+        })
+        $("div.tour-container button.btn-neverShow").click(function () {
+            tour.finish(true);
+        })
+
+        $("div.tour-container .btn-start").click(function () {
+            let targetArr = [
+                '.min-container',
+                "#sec_zero",
+                ".timeTitle",
+                "div.timer-btn-holder",
+                "div.menuBar"
+            ]
+
+            sessionStorage.setItem("Primary Targets", JSON.stringify(targetArr));
+            $("section").css("display", "none")
+            $("section#secondSection").css("display", "")
+
+            //step 1
+            if (this.className.includes('btn-start')) {
+                //Overwrites
+
+                for (let i = 0; i < targetArr.length; i++) {
+                    $(`${targetArr[i]}`).css({
+                        "pointer-events": "none",
+                        "filter": "blur(8px)"
+                    })
+
+                }
+                $("#sec_one").css("pointer-events", "none")
+                //step wise fixing
+                tour.start();
+                $(this).removeClass("btn-start");
+                this.classList.add("btn-next", "next-1");
+                $(this).html("Next")
+
+            }
+            // Step 2
+            else if (this.className.includes('btn-next next-1')) {
+                tour.toMenu();
+                $(this).removeClass("next-1")
+                $(this).addClass("next-2");
+                this.innerHTML = 'Next'
+                $("#sec_one").css({
+                    "filter": "blur(8px)"
+                })
+                $("div.menuBar").css({
+                    "filter": "blur(0px)"
+                })
+
+
+
+
+            }
+            //step 3
+            else if (this.className.includes('next-2')) {
+                tour.toNum();
+                $(this).removeClass("next-2")
+                $(this).addClass("next-3");
+                this.innerHTML = 'Next'
+                $("div.menuBar").css({
+                    "filter": "blur(8px)"
+                })
+
+
+            }
+            //step 4
+            else if (this.className.includes('next-3')) {
+                tour.toStart();
+                $(this).removeClass("next-3")
+                $(this).addClass("next-4");
+                this.innerHTML = 'Next'
+                $("div.timer-btn-holder").css({
+                    "filter": "blur(0px)"
+                });
+
+            }
+            //step 5
+            else if (this.className.includes('next-4')) {
+                tour.toPause();
+                $(this).removeClass("next-4")
+                $(this).addClass("next-5");
+                this.innerHTML = 'Next'
+
+            }
+            //step 6
+            else if (this.className.includes('next-5')) {
+                tour.toReset();
+                $(this).removeClass("next-5")
+                $(this).addClass("next-6");
+                this.innerHTML = 'Next'
+
+                //step 7
+            } else if (this.className.includes('next-6')) {
+                tour.toFinish();
+                $(this).removeClass('next-6');
+                $(this).addClass("btn-finish");
+                this.innerHTML = 'Finish'
+                $("div.timer-btn-holder").css({
+                    "filter": "blur(8px)"
+                });
+            }
+            //Finish & Roll Back
+            else if (this.className.includes('btn-finish')) {
+                tour.finish(true);
+
+                $(this).removeClass('btn-next');
+                //Roll back
+                rollBackChanges(targetArr)
+
+            }
+        })
+    })
+
+    function rollBackChanges(...elements) {
+        $("section").css("display", "");
+        elements.push("#sec_one")
+        for (let i = 0; i < elements.length; i++) {
+            $(`${elements[i]}`).css({
+                "pointer-events": "auto",
+                "filter": "blur(0px)"
+            })
         }
     }
 </script>
